@@ -1,0 +1,57 @@
+{
+  "title": "CT.gov Black-Box Trials",
+  "slug": "ctgov-black-box-trials",
+  "author": "Mahmood Ahmad",
+  "date": "2026-03-29",
+  "path": "C:\\Projects\\ctgov-black-box-trials",
+  "type": "methods",
+  "primary_estimand": "Black-box trial stock and rate among eligible older CT.gov studies",
+  "summary": "A standalone E156 project on older CT.gov studies with no results, no linked paper, and no detailed description.",
+  "body": "What appears when hiddenness is narrowed to black-box trials with no results, no linked publication, and no detailed description? We analysed 249,507 eligible older closed interventional studies from the March 29, 2026 full-registry snapshot. We defined a black-box trial as one with a two-year results gap, no linked publication reference, and no detailed description, then ranked sponsor classes, countries, and condition families. OTHER held the largest black-box stock at 21,375 studies, while INDUSTRY carried the highest large-class black-box rate at 23.4 percent. The United States still held 12,183 black-box studies on absolute stock, but healthy-volunteer portfolios were the sharpest condition-family extreme at 33.9 percent. The black-box view isolates a stricter silence state where industrial portfolios rate worse, while heterogeneous public and academic portfolios still dominate on count across the registry overall. Black-box status is a registry-visibility definition only and does not imply a study lacked internal documentation, external dissemination, or undiscovered reporting outside linked registry fields.",
+  "sentences": [
+    {
+      "role": "Question",
+      "text": "What appears when hiddenness is narrowed to black-box trials with no results, no linked publication, and no detailed description?"
+    },
+    {
+      "role": "Dataset",
+      "text": "We analysed 249,507 eligible older closed interventional studies from the March 29, 2026 full-registry snapshot."
+    },
+    {
+      "role": "Method",
+      "text": "We defined a black-box trial as one with a two-year results gap, no linked publication reference, and no detailed description, then ranked sponsor classes, countries, and condition families."
+    },
+    {
+      "role": "Primary result",
+      "text": "OTHER held the largest black-box stock at 21,375 studies, while INDUSTRY carried the highest large-class black-box rate at 23.4 percent."
+    },
+    {
+      "role": "Secondary result",
+      "text": "The United States still held 12,183 black-box studies on absolute stock, but healthy-volunteer portfolios were the sharpest condition-family extreme at 33.9 percent."
+    },
+    {
+      "role": "Interpretation",
+      "text": "The black-box view isolates a stricter silence state where industrial portfolios rate worse, while heterogeneous public and academic portfolios still dominate on count across the registry overall."
+    },
+    {
+      "role": "Boundary",
+      "text": "Black-box status is a registry-visibility definition only and does not imply a study lacked internal documentation, external dissemination, or undiscovered reporting outside linked registry fields."
+    }
+  ],
+  "notes": {
+    "app": "CT.gov Black-Box Trials dashboard",
+    "data": "249,507 eligible older closed interventional studies with a black-box definition based on results, publication-link, and detailed-description silence",
+    "code": "https://github.com/mahmood726-cyber/ctgov-black-box-trials",
+    "doi": "",
+    "version": "1.0.0",
+    "date": "2026-03-29",
+    "validation": "FULL REGISTRY RUN"
+  },
+  "affiliation": "Tahir Heart Institute",
+  "email": "author@example.com",
+  "references": [
+    "ClinicalTrials.gov API v2. National Library of Medicine. Accessed March 29, 2026.",
+    "DeVito NJ, Bacon S, Goldacre B. Compliance with legal requirement to report clinical trial results on ClinicalTrials.gov: a cohort study. Lancet. 2020;395(10221):361-369.",
+    "Zarin DA, Tse T, Williams RJ, Carr S. Trial reporting in ClinicalTrials.gov. N Engl J Med. 2016;375(20):1998-2004."
+  ]
+}

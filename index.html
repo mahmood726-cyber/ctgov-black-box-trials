@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Where are the black-box trials?</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20viewBox%3D%270%200%2064%2064%27%3E%3Crect%20width%3D%2764%27%20height%3D%2764%27%20rx%3D%2710%27%20fill%3D%27%23111111%27/%3E%3Ctext%20x%3D%2732%27%20y%3D%2739%27%20text-anchor%3D%27middle%27%20font-family%3D%27Georgia%27%20font-size%3D%2728%27%20fill%3D%27%23f4eee3%27%3ECT%3C/text%3E%3C/svg%3E">
+  <style>
+    :root{
+      --bg:#f8f5ef;
+      --paper:#fffdfa;
+      --ink:#111;
+      --muted:#5d584f;
+      --line:#ddd4c6;
+      --line-strong:#b7ab99;
+      --accent:#326891;
+      --gold:#8b6914;
+      --sans:"Segoe UI","Helvetica Neue",Arial,sans-serif;
+      --serif:Georgia,"Times New Roman",serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--serif);
+      background:
+        radial-gradient(circle at top left, rgba(50,104,145,.10), transparent 28%),
+        linear-gradient(180deg, #fcfbf7 0%, var(--bg) 100%);
+      color:var(--ink);
+      line-height:1.65;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    a{color:var(--accent);text-decoration:none}
+    .page{max-width:1120px;margin:0 auto;padding:20px 18px 48px}
+    .masthead{
+      display:flex;justify-content:space-between;gap:18px;align-items:end;
+      border-top:1px solid var(--line-strong);border-bottom:3px double var(--line);
+      padding:10px 0 18px;margin-bottom:24px
+    }
+    .brand{font-size:clamp(28px,4vw,42px);font-weight:700;letter-spacing:-.03em}
+    .brand-meta{max-width:40ch;font:11px/1.6 var(--sans);text-transform:uppercase;letter-spacing:.16em;color:var(--muted);text-align:right}
+    .hero{
+      background:rgba(255,255,255,.92);border:1px solid var(--line);border-top:4px solid var(--ink);
+      padding:32px clamp(18px,4vw,40px);margin-bottom:24px;box-shadow:0 16px 38px rgba(17,17,17,.045)
+    }
+    .eyebrow{font:700 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+    h1{font-size:clamp(38px,6vw,68px);line-height:.98;letter-spacing:-.05em;margin:0 0 14px;max-width:13ch}
+    .lede{font-size:clamp(18px,2.2vw,24px);line-height:1.62;color:#474037;max-width:60rem;margin:0}
+    .hero-rail{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:24px;padding-top:16px;border-top:1px solid var(--line)}
+    .hero-rail div{background:rgba(255,255,255,.7);border-top:1px solid var(--line-strong);padding:12px 14px;font:11px var(--sans);text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+    .grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(280px,.95fr);gap:24px}
+    .card{background:rgba(255,255,255,.93);border:1px solid var(--line);padding:22px 22px 24px;box-shadow:0 14px 28px rgba(17,17,17,.04)}
+    .section-title{font:700 11px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);padding-bottom:10px;border-bottom:1px solid var(--line);margin:0 0 16px}
+    .body-copy{font-size:clamp(22px,2.1vw,30px);line-height:1.78;max-width:30ch;margin:0}
+    .body-copy::first-letter{float:left;font-size:72px;line-height:.85;padding-right:10px;padding-top:8px;font-weight:700;color:var(--gold)}
+    .metrics{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:16px 0 24px}
+    .metric{background:#fff;border:1px solid var(--line);border-top:3px solid var(--gold);padding:16px;border-radius:8px}
+    .metric-label{font:700 10px var(--sans);letter-spacing:.15em;text-transform:uppercase;color:#777;margin-bottom:8px}
+    .metric-value{font-size:30px;font-weight:700;line-height:1.05}
+    .metric-note{font:12px var(--sans);color:#888;margin-top:6px}
+    .note-grid{display:grid;grid-template-columns:auto 1fr;gap:6px 12px;font:13px var(--sans);color:#444}
+    .note-grid dt{font-weight:700;color:#222}
+    .bullet-list{display:grid;gap:10px;padding-left:18px}
+    .links{display:grid;gap:12px}
+    .link-card{display:block;padding:15px 16px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);font:600 15px var(--sans);color:#1b1b1b;border-radius:8px}
+    .chart-wrap{margin:18px 0 26px}
+    .chart-caption{font:12px var(--sans);color:#666;margin-top:10px}
+    .kicker{font:700 11px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin:0 0 8px}
+    .story-block{margin-bottom:26px}
+    .footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--line);font:12px var(--sans);color:#8f887e}
+    .footer a{color:var(--accent)}
+    @media (max-width:900px){
+      .grid{grid-template-columns:1fr}
+      .hero-rail{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .brand-meta{text-align:left}
+      .masthead{display:block}
+    }
+    @media (max-width:640px){
+      .page{padding:14px 12px 40px}
+      .hero{padding:24px 18px}
+      .hero-rail{grid-template-columns:1fr}
+      .body-copy{font-size:22px}
+    }
+    
+    .series-bar{
+      display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+      padding:12px 14px;margin:0 0 18px;background:rgba(255,255,255,.88);
+      border:1px solid var(--line);box-shadow:0 10px 24px rgba(17,17,17,.03)
+    }
+    .series-label{
+      font:700 10px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--muted)
+    }
+    .series-nav{display:flex;gap:10px;flex-wrap:wrap}
+    .series-chip{
+      display:inline-block;padding:9px 12px;border:1px solid var(--line);
+      background:#fff;font:700 11px var(--sans);letter-spacing:.08em;text-transform:uppercase;color:#222;border-radius:999px
+    }
+    .series-chip.current{border-color:var(--ink);background:#f3ede2}
+    .hero-links{display:flex;gap:12px;flex-wrap:wrap;margin:22px 0 8px}
+    .hero-link{
+      display:inline-block;padding:12px 16px;background:#fff;border:1px solid var(--line);
+      font:700 12px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#222;border-radius:999px
+    }
+    .hero-link.primary{background:var(--ink);border-color:var(--ink);color:#fff}
+    .chapter-intro{font:15px/1.8 var(--sans);color:#4f4a42;max-width:70ch;margin:0 0 18px}
+    .pull-quote{
+      margin:18px 0 22px;padding:18px 20px;background:linear-gradient(180deg,#fcfaf5 0%,#f4eee3 100%);
+      border-top:3px solid var(--ink);border-bottom:1px solid var(--line);box-shadow:0 12px 24px rgba(17,17,17,.03)
+    }
+    .pull-quote-text{
+      font-size:clamp(24px,3vw,36px);line-height:1.28;letter-spacing:-.03em;margin:0;color:#1a1814
+    }
+    .pull-quote-meta{
+      margin-top:10px;font:700 10px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)
+    }
+    .section-break{
+      display:flex;align-items:center;gap:12px;margin:24px 0 18px;color:#6a645b;
+      font:700 10px var(--sans);letter-spacing:.18em;text-transform:uppercase
+    }
+    .section-break::before,.section-break::after{content:"";height:1px;background:var(--line-strong);flex:1}
+    .annotation{
+      margin-top:12px;padding:12px 14px;background:#faf6ee;border-left:4px solid var(--gold);
+      font:13px/1.7 var(--sans);color:#4b463e
+    }
+    .series-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:12px;margin-top:18px
+    }
+    .series-card{
+      display:block;padding:16px;background:#fff;border:1px solid var(--line);border-top:3px solid var(--accent);border-radius:8px
+    }
+    .series-card-kicker{
+      font:700 10px var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px
+    }
+    .series-card-title{font-size:20px;line-height:1.15;color:#1b1b1b;margin:0 0 8px}
+    .series-card-copy{font:13px/1.7 var(--sans);color:#5a544a;margin:0}
+    .quick-jump{display:grid;gap:10px;margin:14px 0 18px}
+    @media (max-width:640px){
+      .series-bar{padding:10px 12px}
+      .hero-links{display:grid;grid-template-columns:1fr}
+    }
+    </style>
+</head>
+<body>
+  <div class="page">
+    <div class="masthead">
+      <div class="brand">CT.gov Black-Box Trials</div>
+      <div class="brand-meta">2026-03-29 | full-registry ct.gov audit | plots, figures, and e156 bundle</div>
+    </div>
+    <div class="series-bar">
+      <div class="series-label">Series</div>
+      <div class="series-nav"><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-industry-disclosure-gap/'>Industry</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-sponsor-class-hiddenness/'>Sponsor-Class</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-phase-reporting-gap/'>Phase</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-structural-missingness/'>Structural Missingness</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-evidence-visibility-gap/'>Evidence Visibility</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-completion-cohort-debt/'>Completion Cohort</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-condition-hiddenness-map/'>Condition Hiddenness</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-sponsor-backlog-concentration/'>Sponsor Concentration</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-rule-era-reporting-gap/'>Rule-Era Reporting</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-publication-undercount-audit/'>Publication Undercount</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-oncology-hiddenness/'>Oncology Hiddenness</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-cardiovascular-hiddenness/'>Cardiovascular Hiddenness</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-metabolic-hiddenness/'>Metabolic Hiddenness</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-enrollment-size-gap/'>Enrollment-Size</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-geography-scale-visibility/'>Geography-Scale</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-design-purpose-hiddenness/'>Design-Purpose</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-completion-delay-debt/'>Completion-Delay</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-trial-architecture-gap/'>Trial-Architecture</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-intervention-type-gap/'>Intervention-Type</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-country-reporting-map/'>Country Reporting</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-stopped-trial-disclosure-gap/'>Stopped-Trial</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-outcome-density-gap/'>Outcome-Density</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-actual-field-discipline/'>Actual-Field</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-us-vs-global-gap/'>Us-Versus-Global</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-modality-sponsor-repeaters/'>Modality-Sponsor</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-country-condition-hiddenness/'>Country-Condition</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-disease-geography-gap/'>Disease-Geography</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-condition-sponsor-repeaters/'>Condition-Sponsor</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-country-sponsor-repeaters/'>Country-Sponsor</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-us-vs-exus-sponsor-classes/'>Us-Versus-Ex-Us</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-industry-family-repeaters/'>Industry-Family</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-risk-adjusted-hiddenness/'>Risk-Adjusted Hiddenness</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-overdue-results-clock/'>Overdue Results Clock</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-publication-index-gap/'>Publication Index Gap</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-probable-act-fdaaa-debt/'>Probable Act/Fdaaa Debt</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-sponsor-excess-watchlist/'>Sponsor Watchlist</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-country-excess-watchlist/'>Country Watchlist</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-condition-excess-watchlist/'>Condition Watchlist</a><a class='series-chip current' href='https://mahmood726-cyber.github.io/ctgov-black-box-trials/'>Black-Box Trials</a><a class='series-chip' href='https://mahmood726-cyber.github.io/ctgov-strict-proxy-repeaters/'>Strict Repeaters</a></div>
+    </div>
+    <section class="hero">
+      <div class="eyebrow">Black-Box Project</div>
+      <h1>Where are the black-box trials?</h1>
+      <p class="lede">A standalone public project on the strictest silence state in the series: older trials with no results, no linked paper, and no detailed description on the registry page.</p>
+      <div class='hero-links'><a class='hero-link primary' href='https://mahmood726-cyber.github.io/ctgov-black-box-trials/dashboard.html'>Open dashboard</a><a class='hero-link' href='https://mahmood726-cyber.github.io/ctgov-black-box-trials/e156-submission/index.html'>Read E156 paper</a><a class='hero-link' href='https://mahmood726-cyber.github.io/ctgov-black-box-trials/e156-submission/protocol.md'>Protocol</a><a class='hero-link' href='https://mahmood726-cyber.github.io/ctgov-hiddenness-atlas/'>Series hub</a></div>
+      <div class="hero-rail"><div>OTHER 21.4k</div><div>Industry 23.4%</div><div>US 12.2k</div><div>Healthy 33.9%</div></div>
+    </section>
+    <div class="grid">
+      <main><section class='card'><h2 class='section-title'>Project</h2><p class='chapter-intro'>This page narrows the registry to its darkest visible subset. It asks where the studies are that lack results, lack a linked paper trail, and still offer no detailed description.</p><div class='quick-jump'><a class='link-card' href='https://mahmood726-cyber.github.io/ctgov-black-box-trials/dashboard.html'>Open dashboard at root</a><a class='link-card' href='https://mahmood726-cyber.github.io/ctgov-black-box-trials/e156-submission/index.html'>Read E156 micro-paper</a><a class='link-card' href='https://mahmood726-cyber.github.io/ctgov-black-box-trials/e156-submission/protocol.md'>Open protocol</a><a class='link-card' href='https://mahmood726-cyber.github.io/ctgov-hiddenness-atlas/'>Open series hub</a></div><div class='pull-quote'><p class='pull-quote-text'>Industry looks worse on black-box rate, but heterogeneous public and academic portfolios still dominate black-box stock on count.</p><div class='pull-quote-meta'>Project readout</div></div><p class='body-copy'>A standalone E156 project on older CT.gov studies with no results, no linked paper, and no detailed description.</p><div class='metrics'><div class='metric'><div class='metric-label'>OTHER stock</div><div class='metric-value'>21,375</div><div class='metric-note'>Black-box studies</div></div><div class='metric'><div class='metric-label'>Industry rate</div><div class='metric-value'>23.4%</div><div class='metric-note'>Large-class black-box rate</div></div><div class='metric'><div class='metric-label'>US stock</div><div class='metric-value'>12,183</div><div class='metric-note'>Country-linked stock</div></div><div class='metric'><div class='metric-label'>Healthy rate</div><div class='metric-value'>33.9%</div><div class='metric-note'>Condition-family black-box rate</div></div></div><div class='chart-wrap'><div class='kicker'>Black-box stock by sponsor class</div><svg viewBox='0 0 760 436' style='width:100%;height:auto'><rect x='0' y='0' width='760' height='436' fill='#fffdfa' rx='10'/><text x='380.0' y='20' text-anchor='middle' font-family='Segoe UI,Arial,sans-serif' font-size='11' fill='#6a645b' letter-spacing='0.12em'>BLACK-BOX STOCK</text><text x='380.0' y='38' text-anchor='middle' font-family='Georgia,serif' font-size='14' fill='#333'>Studies with no results, no linked paper, and no detailed description</text><text x='200' y='76' text-anchor='end' font-family='Segoe UI,Arial,sans-serif' font-size='12' fill='#333'>OTHER</text><rect x='210' y='64' width='440' height='18' fill='#eee8df' rx='5'/><rect x='210' y='64' width='440.0' height='18' fill='#8b6914' rx='5' opacity='0.88'/><text x='660' y='77' font-family='Georgia,serif' font-size='14' fill='#1a1a1a'>21,375</text><text x='200' y='116' text-anchor='end' font-family='Segoe UI,Arial,sans-serif' font-size='12' fill='#333'>INDUSTRY</text><rect x='210' y='104' width='440' height='18' fill='#eee8df' rx='5'/><rect x='210' y='104' width='364.7' height='18' fill='#8b6914' rx='5' opacity='0.88'/><text x='660' y='117' font-family='Georgia,serif' font-size='14' fill='#1a1a1a'>17,718</text><text x='200' y='156' text-anchor='end' font-family='Segoe UI,Arial,sans-serif' font-size='12' fill='#333'>OTHER_GOV</text><rect x='210' y='144' width='440' height='18' fill='#eee8df' rx='5'/><rect x='210' y='144' width='11.7' height='18' fill='#8b6914' rx='5' opacity='0.88'/><text x='660' y='157' font-family='Georgia,serif' font-size='14' fill='#1a1a1a'>570</text><text x='200' y='196' text-anchor='end' font-family='Segoe UI,Arial,sans-serif' font-size='12' fill='#333'>NETWORK</text><rect x='210' y='184' width='440' height='18' fill='#eee8df' rx='5'/><rect x='210' y='184' width='4.5' height='18' fill='#8b6914' rx='5' opacity='0.88'/><text x='660' y='197' font-family='Georgia,serif' font-size='14' fill='#1a1a1a'>221</text><text x='200' y='236' text-anchor='end' font-family='Segoe UI,Arial,sans-serif' font-size='12' fill='#333'>FED</text><rect x='210' y='224' width='440' height='18' fill='#eee8df' rx='5'/><rect x='210' y='224' width='3.3' height='18' fill='#8b6914' rx='5' opacity='0.88'/><text x='660' y='237' font-family='Georgia,serif' font-size='14' fill='#1a1a1a'>161</text><text x='200' y='276' text-anchor='end' font-family='Segoe UI,Arial,sans-serif' font-size='12' fill='#333'>NIH</text><rect x='210' y='264' width='440' height='18' fill='#eee8df' rx='5'/><rect x='210' y='264' width='1.2' height='18' fill='#8b6914' rx='5' opacity='0.88'/><text x='660' y='277' font-family='Georgia,serif' font-size='14' fill='#1a1a1a'>59</text><text x='200' y='316' text-anchor='end' font-family='Segoe UI,Arial,sans-serif' font-size='12' fill='#333'>INDIV</text><rect x='210' y='304' width='440' height='18' fill='#eee8df' rx='5'/><rect x='210' y='304' width='0.6' height='18' fill='#8b6914' rx='5' opacity='0.88'/><text x='660' y='317' font-family='Georgia,serif' font-size='14' fill='#1a1a1a'>29</text><text x='200' y='356' text-anchor='end' font-family='Segoe UI,Arial,sans-serif' font-size='12' fill='#333'>UNKNOWN</text><rect x='210' y='344' width='440' height='18' fill='#eee8df' rx='5'/><rect x='210' y='344' width='0.0' height='18' fill='#8b6914' rx='5' opacity='0.88'/><text x='660' y='357' font-family='Georgia,serif' font-size='14' fill='#1a1a1a'>2</text><text x='200' y='396' text-anchor='end' font-family='Segoe UI,Arial,sans-serif' font-size='12' fill='#333'>AMBIG</text><rect x='210' y='384' width='440' height='18' fill='#eee8df' rx='5'/><rect x='210' y='384' width='0.0' height='18' fill='#8b6914' rx='5' opacity='0.88'/><text x='660' y='397' font-family='Georgia,serif' font-size='14' fill='#1a1a1a'>1</text></svg><div class='chart-caption'>OTHER dominates on absolute stock, while INDUSTRY stands out on rate.</div><div class='annotation'>That split is the core black-box finding.</div></div></section><div class='section-break'>Read Across Projects</div><section class='card'><h2 class='section-title'>Across The Series</h2><p class='chapter-intro'>The split projects are meant to be read together because each isolates a different dimension of registry opacity rather than forcing every question into one leaderboard.</p><div class='series-grid'><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-industry-disclosure-gap/'><div class='series-card-kicker'>Industry</div><div class='series-card-title'>Industry project</div><p class='series-card-copy'>Industry project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-sponsor-class-hiddenness/'><div class='series-card-kicker'>Sponsor-Class</div><div class='series-card-title'>Sponsor-class project</div><p class='series-card-copy'>Sponsor-class project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-phase-reporting-gap/'><div class='series-card-kicker'>Phase</div><div class='series-card-title'>Phase project</div><p class='series-card-copy'>Phase project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-structural-missingness/'><div class='series-card-kicker'>Structural Missingness</div><div class='series-card-title'>Structural missingness project</div><p class='series-card-copy'>Structural missingness project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-evidence-visibility-gap/'><div class='series-card-kicker'>Evidence Visibility</div><div class='series-card-title'>Evidence visibility project</div><p class='series-card-copy'>Evidence visibility project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-completion-cohort-debt/'><div class='series-card-kicker'>Completion Cohort</div><div class='series-card-title'>Completion cohort project</div><p class='series-card-copy'>Completion cohort project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-condition-hiddenness-map/'><div class='series-card-kicker'>Condition Hiddenness</div><div class='series-card-title'>Condition hiddenness project</div><p class='series-card-copy'>Condition hiddenness project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-sponsor-backlog-concentration/'><div class='series-card-kicker'>Sponsor Concentration</div><div class='series-card-title'>Sponsor concentration project</div><p class='series-card-copy'>Sponsor concentration project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-rule-era-reporting-gap/'><div class='series-card-kicker'>Rule-Era Reporting</div><div class='series-card-title'>Rule-era reporting project</div><p class='series-card-copy'>Rule-era reporting project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-publication-undercount-audit/'><div class='series-card-kicker'>Publication Undercount</div><div class='series-card-title'>Publication undercount audit</div><p class='series-card-copy'>Publication undercount audit from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-oncology-hiddenness/'><div class='series-card-kicker'>Oncology Hiddenness</div><div class='series-card-title'>Oncology hiddenness project</div><p class='series-card-copy'>Oncology hiddenness project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-cardiovascular-hiddenness/'><div class='series-card-kicker'>Cardiovascular Hiddenness</div><div class='series-card-title'>Cardiovascular hiddenness project</div><p class='series-card-copy'>Cardiovascular hiddenness project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-metabolic-hiddenness/'><div class='series-card-kicker'>Metabolic Hiddenness</div><div class='series-card-title'>Metabolic hiddenness project</div><p class='series-card-copy'>Metabolic hiddenness project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-enrollment-size-gap/'><div class='series-card-kicker'>Enrollment-Size</div><div class='series-card-title'>Enrollment-size project</div><p class='series-card-copy'>Enrollment-size project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-geography-scale-visibility/'><div class='series-card-kicker'>Geography-Scale</div><div class='series-card-title'>Geography-scale project</div><p class='series-card-copy'>Geography-scale project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-design-purpose-hiddenness/'><div class='series-card-kicker'>Design-Purpose</div><div class='series-card-title'>Design-purpose project</div><p class='series-card-copy'>Design-purpose project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-completion-delay-debt/'><div class='series-card-kicker'>Completion-Delay</div><div class='series-card-title'>Completion-delay project</div><p class='series-card-copy'>Completion-delay project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-trial-architecture-gap/'><div class='series-card-kicker'>Trial-Architecture</div><div class='series-card-title'>Trial-architecture project</div><p class='series-card-copy'>Trial-architecture project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-intervention-type-gap/'><div class='series-card-kicker'>Intervention-Type</div><div class='series-card-title'>Intervention-type project</div><p class='series-card-copy'>Intervention-type project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-country-reporting-map/'><div class='series-card-kicker'>Country Reporting</div><div class='series-card-title'>Country reporting project</div><p class='series-card-copy'>Country reporting project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-stopped-trial-disclosure-gap/'><div class='series-card-kicker'>Stopped-Trial</div><div class='series-card-title'>Stopped-trial project</div><p class='series-card-copy'>Stopped-trial project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-outcome-density-gap/'><div class='series-card-kicker'>Outcome-Density</div><div class='series-card-title'>Outcome-density project</div><p class='series-card-copy'>Outcome-density project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-actual-field-discipline/'><div class='series-card-kicker'>Actual-Field</div><div class='series-card-title'>Actual-field project</div><p class='series-card-copy'>Actual-field project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-us-vs-global-gap/'><div class='series-card-kicker'>Us-Versus-Global</div><div class='series-card-title'>US-versus-global project</div><p class='series-card-copy'>US-versus-global project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-modality-sponsor-repeaters/'><div class='series-card-kicker'>Modality-Sponsor</div><div class='series-card-title'>Modality-sponsor project</div><p class='series-card-copy'>Modality-sponsor project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-country-condition-hiddenness/'><div class='series-card-kicker'>Country-Condition</div><div class='series-card-title'>Country-condition project</div><p class='series-card-copy'>Country-condition project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-disease-geography-gap/'><div class='series-card-kicker'>Disease-Geography</div><div class='series-card-title'>Disease-geography project</div><p class='series-card-copy'>Disease-geography project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-condition-sponsor-repeaters/'><div class='series-card-kicker'>Condition-Sponsor</div><div class='series-card-title'>Condition-sponsor project</div><p class='series-card-copy'>Condition-sponsor project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-country-sponsor-repeaters/'><div class='series-card-kicker'>Country-Sponsor</div><div class='series-card-title'>Country-sponsor project</div><p class='series-card-copy'>Country-sponsor project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-us-vs-exus-sponsor-classes/'><div class='series-card-kicker'>Us-Versus-Ex-Us</div><div class='series-card-title'>US-versus-ex-US project</div><p class='series-card-copy'>US-versus-ex-US project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-industry-family-repeaters/'><div class='series-card-kicker'>Industry-Family</div><div class='series-card-title'>Industry-family project</div><p class='series-card-copy'>Industry-family project from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-risk-adjusted-hiddenness/'><div class='series-card-kicker'>Risk-Adjusted Hiddenness</div><div class='series-card-title'>Risk-adjusted hiddenness</div><p class='series-card-copy'>Risk-adjusted hiddenness from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-overdue-results-clock/'><div class='series-card-kicker'>Overdue Results Clock</div><div class='series-card-title'>Overdue results clock</div><p class='series-card-copy'>Overdue results clock from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-publication-index-gap/'><div class='series-card-kicker'>Publication Index Gap</div><div class='series-card-title'>Publication index gap</div><p class='series-card-copy'>Publication index gap from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-probable-act-fdaaa-debt/'><div class='series-card-kicker'>Probable Act/Fdaaa Debt</div><div class='series-card-title'>Probable ACT/FDAAA debt</div><p class='series-card-copy'>Probable ACT/FDAAA debt from the CT.gov hiddenness series.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-sponsor-excess-watchlist/'><div class='series-card-kicker'>Sponsor Watchlist</div><div class='series-card-title'>CT.gov Sponsor Excess Watchlist</div><p class='series-card-copy'>Sponsor-level adjusted watchlist showing which named sponsors still carry the largest excess hiddenness stock.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-country-excess-watchlist/'><div class='series-card-kicker'>Country Watchlist</div><div class='series-card-title'>CT.gov Country Excess Watchlist</div><p class='series-card-copy'>Country-linked adjusted watchlist showing which national portfolios remain worse than expected after visible study mix is held more constant.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-condition-excess-watchlist/'><div class='series-card-kicker'>Condition Watchlist</div><div class='series-card-title'>CT.gov Condition Excess Watchlist</div><p class='series-card-copy'>Condition-family watchlist showing which therapeutic areas still carry excess no-results and ghost-protocol stock.</p></a><a class='series-card' href='https://mahmood726-cyber.github.io/ctgov-strict-proxy-repeaters/'><div class='series-card-kicker'>Strict Repeaters</div><div class='series-card-title'>CT.gov Strict-Proxy Repeaters</div><p class='series-card-copy'>Strict U.S.-nexus repeater tables showing which sponsors and classes dominate the regulated-looking backlog.</p></a></div></section></main>
+      <aside class="card"><h2 class='section-title'>Notes</h2><dl class='note-grid'><dt>Author</dt><dd>Mahmood Ahmad</dd><dt>Date</dt><dd>2026-03-29</dd><dt>Repo</dt><dd><a href='https://github.com/mahmood726-cyber/ctgov-black-box-trials'>https://github.com/mahmood726-cyber/ctgov-black-box-trials</a></dd><dt>Pages</dt><dd><a href='https://mahmood726-cyber.github.io/ctgov-black-box-trials/'>https://mahmood726-cyber.github.io/ctgov-black-box-trials/</a></dd><dt>Primary estimand</dt><dd>Black-box trial stock and rate among eligible older CT.gov studies</dd></dl><div class='links'><a class='link-card' href='https://mahmood726-cyber.github.io/ctgov-black-box-trials/dashboard.html'>Dashboard</a><a class='link-card' href='https://mahmood726-cyber.github.io/ctgov-black-box-trials/e156-submission/index.html'>E156 micro-paper</a><a class='link-card' href='https://mahmood726-cyber.github.io/ctgov-black-box-trials/e156-submission/paper.md'>Paper</a><a class='link-card' href='https://mahmood726-cyber.github.io/ctgov-black-box-trials/e156-submission/protocol.md'>Protocol</a></div><h2 class='section-title'>Series Hub</h2><div class='links'><a class='link-card' href='https://mahmood726-cyber.github.io/ctgov-hiddenness-atlas/'>CT.gov project series</a></div></aside>
+    </div>
+    <div class="footer">
+      <a href="https://github.com/mahmood726-cyber/ctgov-black-box-trials">Source on GitHub</a> |
+      <a href="https://mahmood726-cyber.github.io/ctgov-black-box-trials/">Project home</a> |
+      <a href="https://mahmood726-cyber.github.io/ctgov-black-box-trials/dashboard.html">Dashboard</a>
+    </div>
+  </div>
+</body>
+</html>
