@@ -1,0 +1,96 @@
+{
+  "title": "CT.gov Black-Box Trials",
+  "slug": "ctgov-black-box-trials",
+  "author": "Mahmood Ahmad",
+  "date": "2026-03-29",
+  "body": "What appears when hiddenness is narrowed to black-box trials with no results, no linked publication, and no detailed description? We analysed 249,507 eligible older closed interventional studies from the March 29, 2026 full-registry snapshot. We defined a black-box trial as one with a two-year results gap, no linked publication reference, and no detailed description, then ranked sponsor classes, countries, and condition families. OTHER held the largest black-box stock at 21,375 studies, while INDUSTRY carried the highest large-class black-box rate at 23.4 percent. The United States still held 12,183 black-box studies on absolute stock, but healthy-volunteer portfolios were the sharpest condition-family extreme at 33.9 percent. The black-box view isolates a stricter silence state where industrial portfolios rate worse, while heterogeneous public and academic portfolios still dominate on count across the registry overall. Black-box status is a registry-visibility definition only and does not imply a study lacked internal documentation, external dissemination, or undiscovered reporting outside linked registry fields.",
+  "word_count": 156,
+  "sentence_count": 7,
+  "sentences": [
+    {
+      "role": "Question",
+      "text": "What appears when hiddenness is narrowed to black-box trials with no results, no linked publication, and no detailed description?"
+    },
+    {
+      "role": "Dataset",
+      "text": "We analysed 249,507 eligible older closed interventional studies from the March 29, 2026 full-registry snapshot."
+    },
+    {
+      "role": "Method",
+      "text": "We defined a black-box trial as one with a two-year results gap, no linked publication reference, and no detailed description, then ranked sponsor classes, countries, and condition families."
+    },
+    {
+      "role": "Primary result",
+      "text": "OTHER held the largest black-box stock at 21,375 studies, while INDUSTRY carried the highest large-class black-box rate at 23.4 percent."
+    },
+    {
+      "role": "Secondary result",
+      "text": "The United States still held 12,183 black-box studies on absolute stock, but healthy-volunteer portfolios were the sharpest condition-family extreme at 33.9 percent."
+    },
+    {
+      "role": "Interpretation",
+      "text": "The black-box view isolates a stricter silence state where industrial portfolios rate worse, while heterogeneous public and academic portfolios still dominate on count across the registry overall."
+    },
+    {
+      "role": "Boundary",
+      "text": "Black-box status is a registry-visibility definition only and does not imply a study lacked internal documentation, external dissemination, or undiscovered reporting outside linked registry fields."
+    }
+  ],
+  "notes": {
+    "app": "CT.gov Black-Box Trials dashboard",
+    "data": "249,507 eligible older closed interventional studies with a black-box definition based on results, publication-link, and detailed-description silence",
+    "code": "https://github.com/mahmood726-cyber/ctgov-black-box-trials",
+    "doi": "",
+    "version": "1.0.0",
+    "date": "2026-03-29",
+    "validation": "FULL REGISTRY RUN"
+  },
+  "type": "methods",
+  "primary_estimand": "Black-box trial stock and rate among eligible older CT.gov studies",
+  "validation": {
+    "status": "pass",
+    "checks": [
+      {
+        "name": "single paragraph",
+        "ok": true,
+        "detail": "Body must not contain blank-line paragraph breaks."
+      },
+      {
+        "name": "sentence count",
+        "ok": true,
+        "detail": "Found 7 sentences."
+      },
+      {
+        "name": "word count",
+        "ok": true,
+        "detail": "Found 156 words."
+      },
+      {
+        "name": "no headings",
+        "ok": true,
+        "detail": "No markdown headings allowed in body."
+      },
+      {
+        "name": "no links",
+        "ok": true,
+        "detail": "No links or DOI links allowed in body."
+      },
+      {
+        "name": "result sentence has interval",
+        "ok": true,
+        "detail": "Sentence 4 should include a quantitative result such as a percentage, count, or interval."
+      },
+      {
+        "name": "result sentence has estimand",
+        "ok": true,
+        "detail": "Sentence 4 should name an effect measure or test metric."
+      },
+      {
+        "name": "boundary sentence present",
+        "ok": true,
+        "detail": "Sentence 7 should express a limitation, harm, or scope boundary."
+      }
+    ]
+  },
+  "schema": "e156-v0.2"
+}
